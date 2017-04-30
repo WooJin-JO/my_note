@@ -1,0 +1,27 @@
+{
+  "name": "daily-quote",
+  "description": "Display a random quote",
+  "main": "daily-quote.html",
+  "version": "1.1.0",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
+    "paper-button": "PolymerElements/paper-button#^1.0.15"
+  },
+  "homepage": "https://github.com/itsMeBender/daily-quote",
+  "_release": "1.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.0",
+    "commit": "527d78f06c259207aac810ee4648312fbf1587d2"
+  },
+  "_source": "https://github.com/itsMeBender/daily-quote.git",
+  "_target": "^1.1.0",
+  "_originalSource": "itsMeBender/daily-quote",
+  "_direct": true
+}

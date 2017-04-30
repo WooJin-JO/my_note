@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>daily-quote demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../paper-button/paper-button.html">
+    <link rel="import" href="../daily-quote.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+      .demo {
+        max-width: 740px;
+      }
+      paper-button {
+        margin-top: 1.6em;
+      }
+
+      .quote--mixin {
+        --quote-intro-theme: {
+          font-style: italic;
+          color: #666666;
+        }
+        --quote-theme: {
+          color: #436BA8;
+          padding-left: 1em;
+        }
+        --quote-author-theme: {
+          text-align: left;
+          font-style: normal;
+        }
+        --quote-theme--before: {
+          color: #CCCCCC;
+          content: '"';
+          padding: 1em 0.2em 0 0;
+        }        
+        --quote-theme--after: {
+          color: #CCCCCC;
+          content: '"';
+          padding: 1em 0 0 0.2em;          
+        }
+      }
+    </style>
+  </head>
+  <body onload="showTags()">
+    <div class="vertical-section-container centered demo">
+      <h3>A random quote from the available list.</h3>
+      <p>Using the English 'EN' library. Providing a button to change to quote. Using the show() method.</p>
+      <demo-snippet>
+        <template>
+          <daily-quote id="randomQuote" language="EN"></daily-quote> 
+          <paper-button onClick="newRandomQuote()" raised>New quote</paper-button>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered demo">
+      <h3>Using a tag</h3>
+      <p id="listTags"><em>Tag</em> like 'funny'.</p>
+      <demo-snippet>
+        <template>
+          <daily-quote tag="computer"></daily-quote>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered demo">
+      <h3>Using attribute tag to seach in quote data</h3>
+      <p>Use a <em>word</em> as tag, like 'myth'. Used to seach through the quote list.<br>
+      Use <em>mixins</em> to style the outcome.</p>
+      <demo-snippet>
+        <template>
+          <daily-quote tag="myth" class="quote--mixin"></daily-quote>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <script>
+      function showTags () {
+        var tags = document.querySelector("#randomQuote");
+        if (tags && tags.quotes) {
+          document.querySelector("#listTags").innerHTML = "<em>Tags</em>: " + tags.quotes.tagList().toString();
+        } else {
+          setTimeout(showTags, 10);
+        }
+      }
+      // Start polling when Polymer element is ready for duty
+      // I do not believe this is THE solution.
+      setTimeout(showTags, 10);
+
+      function newRandomQuote () {
+        document.querySelector("#randomQuote").show();
+      }
+    </script>
+
+  </body>
+</html>

@@ -31,7 +31,7 @@ noteapp.listen(3000, function () {
   console.log('Example noteapp listening on port 3000!');
 });
 
-/*
+
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
@@ -65,4 +65,3 @@ app.on('activate', () => {
     createWindow()
   }
 })
-*/
